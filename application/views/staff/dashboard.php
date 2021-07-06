@@ -26,11 +26,11 @@
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800" style="font-weight:700">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
                 </div>
-                <!-- <div class="container-fluid">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-xl-6 col-md-6 mb-6">
                             <div class="card shadow h-100 py-2">
@@ -38,8 +38,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                Quote For Today!</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">You Will never really fail until you stop trying</div>
                                         </div>
                                     </div>
                                 </div>
@@ -50,16 +50,16 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                3 hari lagi</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rapat Internal departemen IT pukul 19.00 WIB</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <div class="container-fluid mb-3">
                     <div>
                         <br> 
@@ -68,18 +68,49 @@
                                 <table id="example" class="table bg-light" style="width:100%; color: #0E3854">
                                     <thead style="background : rgba(255,165,2,0.5); font-weight: 900;">
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Jobs</th>
-                                            <th>Attachment</th>
-                                            <th>Status</th>
+                                            <th>Nama</th>
+                                            <th>Tugas</th>
+                                            <th>Tanggal</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <!-- sementara data nya manual dulu nanti di ambil dari database -->
                                         <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer SCustomer SCustomer SCustomer SCustomer Support</td>
-                                            <td>New YNew YNew YNew YNew YNew YNew YNew YNew York</td>
-                                            <td>27</td>
+                                            <td>Eka Diah Putri</td>
+                                            <td>Pembuatan halaman login pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Taylor Swift</td>
+                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eka Diah Putri</td>
+                                            <td>Pembuatan halaman login pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Taylor Swift</td>
+                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eka Diah Putri</td>
+                                            <td>Pembuatan halaman login pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Taylor Swift</td>
+                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
                                         </tr>
                                     </tbody>
                                     <tfoot style="font-weight: 900;"> 
