@@ -1,0 +1,16 @@
+.inputTitle{
+    font-size: 20px;
+    color: #0E3854;
+}
+.inputTugas{
+    width: 100%;
+    /* background: #F8F9FC; */
+    /* background: #E9ECEF; */
+    border: 1px solid #e9ecef;
+    padding: 5px 7px;
+    color: #383D41;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 100%;
+    /* font-weight: bold; */
+}
