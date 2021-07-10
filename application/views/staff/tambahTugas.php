@@ -35,7 +35,7 @@
                 <!-- detail tugas -->
                 <div class="container-fluid">
                     <div class="card shadow h-100 py-3 px-3 text-dark">
-                        <form action="">
+                        <form action="<?php echo base_url().'index.php/staffCtl/masukkanTugas';?>">
                             <div class="row py-1">
                                 <div class="col-md-6">
                                     <div class="row">
@@ -43,7 +43,7 @@
                                             <strong>Nama</strong>
                                         </div>
                                         <div class="col-md-12 ">
-                                            <input type="text" placeholder="Masukkan Nama Kamu" class="inputTugas py-3 px-2">
+                                            <input required type="text" name="nama" placeholder="Masukkan Nama Kamu" class="inputTugas py-3 px-2">
                                             <!-- <div class="inputTugas py-3 px-2">Eka Diah Putri</div> -->
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                             <strong>Tanggal</strong>
                                         </div>
                                         <div class="col-md-12 ">
-                                            <input type="date" placeholder="Pilih Tanggal" class="inputTugas py-3 px-2">
+                                            <input  type="date" disabled="disabled" name="tanggal" value="<?php echo date('Y-m-d'); ?>"placeholder="Pilih Tanggal" class="inputTugas py-3 px-2">
                                             <!-- <div class="inputTugas py-3 px-2">Jumat, 10 Oktober 2021</div> -->
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <!-- <div class="inputTugas py-3 px-2">Pembuatan halaman login pada aplikasi mobile</div> -->
-                                            <input type="text" placeholder="Masukkan Tugas Kamu" class="inputTugas py-3 px-2">
+                                            <input required name="tugas" type="text" placeholder="Masukkan Tugas Kamu" class="inputTugas py-3 px-2">
                                         </div>
                                     </div>
                                     <div class="row py-3">
@@ -76,7 +76,7 @@
                                             <strong>Link Pendukung</strong>
                                         </div>
                                         <div class="col-md-12 ">
-                                            <input type="text" placeholder="Masukkan link pendukung" class="inputTugas py-3 px-2">
+                                            <input name="link pendukung" type="text" placeholder="Masukkan link pendukung" class="inputTugas py-3 px-2">
                                             <!-- <div class="inputTugas py-3 px-2">https://iniadalahsebuahlink/asdfasdf/asdfasdf</div> -->
                                             <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
                                         </div>
@@ -86,7 +86,7 @@
                                             <strong>Attachment</strong>
                                         </div>
                                         <div class="col-md-12 ">
-                                            <input type="file" placeholder="Masukkan File Tambahan" class="inputTugas py-3 px-2">
+                                            <input name="lampiran" type="file" placeholder="Masukkan File Tambahan" class="inputTugas py-3 px-2">
                                             <!-- <div class="inputTugas py-3 px-2">gambarScreenshootdariuser.jpg</div> -->
                                             <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
                                         </div>
@@ -98,7 +98,7 @@
                                             <strong>Deskripsi Tugas</strong>
                                         </div>
                                         <div class="col-md-12" >
-                                            <textarea class="inputTugas py-3 px-2" name="" id="" cols="30" rows="11"></textarea>
+                                            <textarea required name="deskripsi" class="inputTugas py-3 px-2" name="" id="" cols="30" rows="11"></textarea>
                                             <!-- <input type="text" placeholder="Masukkan Detail Tugas" class="inputTugas py-3 px-2"> -->
                                         </div>
                                     </div>

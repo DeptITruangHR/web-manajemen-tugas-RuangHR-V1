@@ -10,14 +10,14 @@
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/staffctl/submittugas' ?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/staffctl/tugasSaya' ?>">
             <i class="fas fa-fw fa-wrench"></i>
-            <span>Tugas</span></a>
+            <span>Daftar Tugas</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/staffctl/submittugas' ?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/staffctl/daftarNotulensi' ?>">
             <i class="fas fa-sticky-note"></i>
-            <span>Notulensi</span></a>
+            <span>Daftar Notulensi</span></a>
     </li>
     <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url().'index.php/staffctl/profile' ?>">

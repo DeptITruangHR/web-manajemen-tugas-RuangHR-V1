@@ -41,6 +41,19 @@ class StaffCtl extends CI_Controller {
         $this->load->view("staff/tambahTugas", array('nama' => $session_data['nama_user']));
     }
 
+    public function masukkanTugas(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "3"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->helper(array('url','security','form');
+        $this->load->model('staff');
+        
+    }
+
     public function daftarNotulensi(){
         if(!$this->session->userdata('logged_in')){
             redirect('welcome');
