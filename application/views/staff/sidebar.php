@@ -15,6 +15,11 @@
             <span>Tugas</span></a>
     </li>
     <li class="nav-item active">
+        <a class="nav-link" href="<?php echo base_url().'index.php/staffctl/submittugas' ?>">
+            <i class="fas fa-sticky-note"></i>
+            <span>Notulensi</span></a>
+    </li>
+    <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url().'index.php/staffctl/profile' ?>">
             <i class="fas fa-fw fa-cog"></i>
             <span>Profile</span></a>
