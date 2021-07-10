@@ -35,74 +35,79 @@
                 <!-- detail tugas -->
                 <div class="container-fluid">
                     <div class="card shadow h-100 py-3 px-3 text-dark">
-                        <div class="row py-1">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-12 inputTitle py-2">
-                                        <strong>Nama</strong>
+                        <form action="">
+                            <div class="row py-1">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-12 inputTitle py-2">
+                                            <strong>Nama</strong>
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <input type="text" placeholder="Masukkan Nama Kamu" class="inputTugas py-3 px-2">
+                                            <!-- <div class="inputTugas py-3 px-2">Eka Diah Putri</div> -->
+                                        </div>
                                     </div>
-                                    <div class="col-md-12 ">
-                                        <input type="text" placeholder="Masukkan Nama Kamu" class="inputTugas py-3 px-2">
-                                        <!-- <div class="inputTugas py-3 px-2">Eka Diah Putri</div> -->
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-12 inputTitle py-2">
+                                            <strong>Tanggal</strong>
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <input type="date" placeholder="Pilih Tanggal" class="inputTugas py-3 px-2">
+                                            <!-- <div class="inputTugas py-3 px-2">Jumat, 10 Oktober 2021</div> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-12 inputTitle py-2">
-                                        <strong>Tanggal</strong>
+                            <div class="row py-3">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-12 inputTitle py-2">
+                                            <strong>Tugas</strong>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <!-- <div class="inputTugas py-3 px-2">Pembuatan halaman login pada aplikasi mobile</div> -->
+                                            <input type="text" placeholder="Masukkan Tugas Kamu" class="inputTugas py-3 px-2">
+                                        </div>
                                     </div>
-                                    <div class="col-md-12 ">
-                                        <input type="date" placeholder="Pilih Tanggal" class="inputTugas py-3 px-2">
-                                        <!-- <div class="inputTugas py-3 px-2">Jumat, 10 Oktober 2021</div> -->
+                                    <div class="row py-3">
+                                        <div class="col-md-12 inputTitle py-2">
+                                            <strong>Link Pendukung</strong>
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <input type="text" placeholder="Masukkan link pendukung" class="inputTugas py-3 px-2">
+                                            <!-- <div class="inputTugas py-3 px-2">https://iniadalahsebuahlink/asdfasdf/asdfasdf</div> -->
+                                            <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
+                                        </div>
+                                    </div>
+                                    <div class="row py-3">
+                                        <div class="col-md-12 inputTitle py-2">
+                                            <strong>Attachment</strong>
+                                        </div>
+                                        <div class="col-md-12 ">
+                                            <input type="file" placeholder="Masukkan File Tambahan" class="inputTugas py-3 px-2">
+                                            <!-- <div class="inputTugas py-3 px-2">gambarScreenshootdariuser.jpg</div> -->
+                                            <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-12 inputTitle py-2">
+                                            <strong>Deskripsi Tugas</strong>
+                                        </div>
+                                        <div class="col-md-12" >
+                                            <textarea class="inputTugas py-3 px-2" name="" id="" cols="30" rows="11"></textarea>
+                                            <!-- <input type="text" placeholder="Masukkan Detail Tugas" class="inputTugas py-3 px-2"> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row py-3">
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-12 inputTitle py-2">
-                                        <strong>Tugas</strong>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <!-- <div class="inputTugas py-3 px-2">Pembuatan halaman login pada aplikasi mobile</div> -->
-                                        <input type="text" placeholder="Masukkan Tugas Kamu" class="inputTugas py-3 px-2">
-                                    </div>
-                                </div>
-                                <div class="row py-3">
-                                    <div class="col-md-12 inputTitle py-2">
-                                        <strong>Link Pendukung</strong>
-                                    </div>
-                                    <div class="col-md-12 ">
-                                        <input type="text" placeholder="Masukkan link pendukung" class="inputTugas py-3 px-2">
-                                        <!-- <div class="inputTugas py-3 px-2">https://iniadalahsebuahlink/asdfasdf/asdfasdf</div> -->
-                                        <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
-                                    </div>
-                                </div>
-                                <div class="row py-3">
-                                    <div class="col-md-12 inputTitle py-2">
-                                        <strong>Attachment</strong>
-                                    </div>
-                                    <div class="col-md-12 ">
-                                        <input type="file" placeholder="Masukkan File Tambahan" class="inputTugas py-3 px-2">
-                                        <!-- <div class="inputTugas py-3 px-2">gambarScreenshootdariuser.jpg</div> -->
-                                        <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
-                                    </div>
-                                </div>
+                            <div class="ml-auto">
+                                <input class="btn btn-primary" name="submitTugas" type="submit">
                             </div>
-                            <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-12 inputTitle py-2">
-                                        <strong>Deskripsi Tugas</strong>
-                                    </div>
-                                    <div class="col-md-12" >
-                                        <textarea class="inputTugas py-3 px-2" name="" id="" cols="30" rows="11"></textarea>
-                                        <!-- <input type="text" placeholder="Masukkan Detail Tugas" class="inputTugas py-3 px-2"> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>          
                 </div>
             </div>
