@@ -31,8 +31,25 @@ class staff extends CI_model {
         $this->db->set("detail", $this->input->post("deskripsi"));
         $this->db->set("file", $filename);
         $this->db->set("link", $this->input->post("link"));
+        $kode = $id_member.'.'.time();
+        $this->db->set("kode", md5($kode));
         // $this->db->set("date", time());
         $this->db->insert('tugas');
+        return $this->db->insert_id();
+    }
+
+    function insertUpdateTask($id_member=-1, $filename=""){
+        $kode = $this->input->get('kode');
+        $this->db->set("pekerjaan", $this->input->post('tugas'));
+        $this->db->set("id_member", $id_member);
+        $this->db->set("detail", $this->input->post("deskripsi"));
+        $this->db->set("file", $filename);
+        $this->db->set("link", $this->input->post("link"));
+        $this->db->set("status", '2');
+        // $kode = $id_member.'.'.time();
+        // $this->db->set("date", time());
+        $this->db->update('tugas');
+        $this->db->where("kode", $kode);
         return $this->db->insert_id();
     }
 
