@@ -35,7 +35,7 @@
                 <!-- detail tugas -->
                 <div class="container-fluid">
                     <div class="card shadow h-100 py-3 px-3 text-dark">
-                        <form action="<?php echo base_url().'index.php/staffCtl/masukkanTugas';?>">
+                        <form method="post" enctype="multipart/form-data" action="<?php echo base_url().'index.php/staffCtl/masukkanTugas';?>">
                             <div class="row py-1">
                                 <div class="col-md-6">
                                     <div class="row">
@@ -76,7 +76,7 @@
                                             <strong>Link Pendukung</strong>
                                         </div>
                                         <div class="col-md-12 ">
-                                            <input name="link pendukung" type="text" placeholder="Masukkan link pendukung" class="inputTugas py-3 px-2">
+                                            <input name="link" type="text" placeholder="Masukkan link pendukung" class="inputTugas py-3 px-2">
                                             <!-- <div class="inputTugas py-3 px-2">https://iniadalahsebuahlink/asdfasdf/asdfasdf</div> -->
                                             <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
                                         </div>

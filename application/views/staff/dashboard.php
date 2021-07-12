@@ -29,6 +29,22 @@
                         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
+                    <?php if($msg != ""){ ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>Success </strong><?php echo htmlentities($msg) ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php } ?>
+                    <?php if($error != ""){ ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Sorry </strong><?php echo $error?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="container-fluid">
                     <div class="row">
@@ -63,7 +79,7 @@
                 <div class="container-fluid mb-3">
                     <div>
                         <br> 
-                        <div class="row" style="color: #0E3854; font-weight: 700;">
+                        <div class="row card" style="color: #0E3854; font-weight: 700;background:white">
                             <div class="table-responsive" style="padding: 20px 0">
                                 <table id="example" class="table bg-light" style="width:100%; color: #0E3854">
                                     <thead style="background : rgba(255,165,2,0.5); font-weight: 900;">
@@ -75,43 +91,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <!-- sementara data nya manual dulu nanti di ambil dari database -->
-                                        <tr>
-                                            <td>Eka Diah Putri</td>
-                                            <td>Pembuatan halaman login pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Taylor Swift</td>
-                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Eka Diah Putri</td>
-                                            <td>Pembuatan halaman login pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Taylor Swift</td>
-                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Eka Diah Putri</td>
-                                            <td>Pembuatan halaman login pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Taylor Swift</td>
-                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
+                                    <?php 
+                                        $i=0;
+                                        foreach($alltask as $task){
+                                            $i++; ?>
+                                            <tr>
+                                                <td><?php echo htmlentities($task['nama_user']) ?></td>
+                                                <td><?php echo htmlentities($task['pekerjaan']) ?></td>
+                                                <td><?php echo htmlentities($task['date']) ?></td>
+                                                <td><a href="<?php echo base_url().'index.php/staffCtl/detailTugas?kode='.$task['id_tugas'];?>"><button class="btn btn-info">Detail</button></a></td>
+                                            </tr>
+
+                                        <?php } ?>
                                     </tbody>
                                     <tfoot style="font-weight: 900;"> 
                                         <tr>

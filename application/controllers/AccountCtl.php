@@ -30,7 +30,7 @@ class AccountCtl extends CI_Controller {
             $this->load->view('login', array('msg' => $msg));
             return FALSE;
         }
-
+ 
         $users = $this->account->getIDUser();
         if(sizeof($users)<=0){
             $msg = "Username or Password is incorrect";

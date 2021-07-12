@@ -42,3 +42,5 @@ class account extends CI_model {
     //     $q = "SELECT * FROM tugas where id_member";
     // }
 }
+
+?>
