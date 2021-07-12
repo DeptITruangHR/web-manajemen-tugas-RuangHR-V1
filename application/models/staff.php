@@ -13,6 +13,18 @@ class staff extends CI_model {
         return $res->result_array();
     }
 
+    function getMyTask($id_member = -1){
+        $query = "SELECT * from tugas JOIN member on tugas.id_member = member.id_member JOIN user on user.id_user=member.id_user WHERE tugas.id_member = '".$id_member."'";
+        $res = $this->db->query($query);
+        return $res->result_array();
+    }
+
+    function getMyUndoneTask($id_member = -1){
+        $query = "SELECT * from tugas JOIN member on tugas.id_member = member.id_member JOIN user on user.id_user=member.id_user WHERE tugas.id_member = '".$id_member."' AND tugas.status = '1'";
+        $res = $this->db->query($query);
+        return $res->result_array();
+    }
+
     function insertNewTask($id_member=-1, $filename=""){
         $this->db->set("pekerjaan", $this->input->post('tugas'));
         $this->db->set("id_member", $id_member);

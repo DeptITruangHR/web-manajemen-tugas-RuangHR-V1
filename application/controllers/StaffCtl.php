@@ -84,8 +84,11 @@ class StaffCtl extends CI_Controller {
             redirect('welcome/redirecting');
         }
         $this->load->model('account');
+        $this->load->model('staff');
+        $myTask = $this->staff->getMyTask($session_data['id_member']);
+        $myUndoneTask = $this->staff->getMyUndoneTask($session_data['id_member']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
-        $this->load->view("staff/tugasSaya", array('nama' => $session_data['nama_user']));
+        $this->load->view("staff/tugasSaya", array('nama' => $session_data['nama_user'], 'mytask' => $myTask, 'myUndoneTask' => $myUndoneTask));
     }
 
 

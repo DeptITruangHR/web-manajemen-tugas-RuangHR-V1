@@ -24,9 +24,10 @@
                 <?php $this->load->view('staff/header', array('nama' => $nama)) ?>
 
                 <div class="container-fluid">
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <div class="d-sm-flex align-items-center mb-4">
                         <h1 class="h3 mb-0 text-gray-800" style="font-weight:700">Tugas Saya</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sticky-note"></i> Lapor Tugas</a>
+                        <a href="<?php echo base_url().'index.php/staffCtl/tambahTugas'?>" class="d-none ml-auto d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus-square"></i> Lapor Tugas</a>
+                        <button type="button" class="d-none ml-3 d-sm-inline-block btn btn-sm btn-info shadow-sm" data-toggle="modal" data-target="#staticBackdrop"><i class="fas fa-sticky-note"></i> Update Tugas</button>
                     </div>
                 </div>
                 <div class="container-fluid mb-3">
@@ -36,60 +37,36 @@
                             <div class="table-responsive" style="padding: 20px 0">
                                 <table id="example" class="table" style="width:100%; color: #0E3854;background:white">
                                     <thead style="background : rgba(255,165,2,0.5); font-weight: 900;">
-                                        <tr>
+                                        <tr class="text-center">
                                             <th>Nama</th>
                                             <th>Subject</th>
                                             <th>Tanggal</th>
                                             <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <!-- sementara data nya manual dulu nanti di ambil dari database -->
-                                        <tr>
-                                            <td>Rapat Mobile</td>
-                                            <td>Pembuatan halaman login pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat IT</td>
-                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat Website</td>
-                                            <td>backup regular website ruangHR</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat Mobile</td>
-                                            <td>Pembuatan halaman login pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat IT</td>
-                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat Website</td>
-                                            <td>backup regular website ruangHR</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot style="font-weight: 900;"> 
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Jobs</th>
-                                            <th>Attachment</th>
                                             <th>Status</th>
                                         </tr>
-                                    </tfoot>
+                                    </thead>
+                                    <tbody class="text-center">
+                                    <!-- sementara data nya manual dulu nanti di ambil dari database -->
+                                        <?php 
+                                        $i=0;
+                                        foreach($mytask as $task){
+                                            $i++; ?>
+                                            <tr>
+                                                <td><?php echo htmlentities($task['nama_user']) ?></td>
+                                                <td><?php echo htmlentities($task['pekerjaan']) ?></td>
+                                                <td><?php echo htmlentities($task['date']) ?></td>
+                                                <td><a href="<?php echo base_url().'index.php/staffCtl/detailTugas?kode='.$task['kode'];?>"><button class="btn" style="background:#D5EAF8;color:#0E3854">Detail</button></a></td>
+                                                <?php if($task['status']==0){ ?>
+                                                    <td class="text-success text-center">Selesai</td>
+                                                <?php }else if($task['status'] == 1){ ?>
+                                                    <td class="text-warning text-center">Belum selesai</td>
+                                                <?php }else if($task['status'] == 2) { ?>
+                                                    <td class="text-info text-center">Menunggu</td>
+                                                <?php } ?>
+                                            </tr>
+
+                                        <?php } ?>
+                                    </tbody>
                                 </table>
                             </div>  
                         </div>
@@ -105,6 +82,47 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Tugas yang harus diselesaikan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="text-center">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Tanggal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table">
+                        <?php 
+                            $i=0;
+                            foreach($myUndoneTask as $task){
+                                $i++; ?>
+                                <tr>
+                                    <td><?php echo htmlentities($task['pekerjaan']) ?></td>
+                                    <td><?php echo htmlentities($task['date']) ?></td>
+                                    <td><a href="<?php echo base_url().'index.php/staffCtl/updateTugas?kode='.$task['kode'];?>"><button class="btn" style="background:#D5EAF8;color:#0E3854">Update</button></a></td>
+                                </tr>
+
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+            </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">

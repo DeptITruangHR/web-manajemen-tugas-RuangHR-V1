@@ -43,7 +43,7 @@
                                             <strong>Nama</strong>
                                         </div>
                                         <div class="col-md-12 ">
-                                            <input required type="text" name="nama" placeholder="Masukkan Nama Kamu" class="inputTugas py-3 px-2">
+                                            <input required type="text" name="nama" value="<?php echo htmlentities($nama)?>" class="inputTugas py-3 px-2">
                                             <!-- <div class="inputTugas py-3 px-2">Eka Diah Putri</div> -->
                                         </div>
                                     </div>

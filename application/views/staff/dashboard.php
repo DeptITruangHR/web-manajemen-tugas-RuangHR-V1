@@ -81,7 +81,7 @@
                         <br> 
                         <div class="row card" style="color: #0E3854; font-weight: 700;background:white">
                             <div class="table-responsive" style="padding: 20px 0">
-                                <table id="example" class="table bg-light" style="width:100%; color: #0E3854">
+                                <table id="example" class="table bg-light text-center" style="width:100%; color: #0E3854">
                                     <thead style="background : rgba(255,165,2,0.5); font-weight: 900;">
                                         <tr>
                                             <th>Nama</th>
@@ -99,19 +99,11 @@
                                                 <td><?php echo htmlentities($task['nama_user']) ?></td>
                                                 <td><?php echo htmlentities($task['pekerjaan']) ?></td>
                                                 <td><?php echo htmlentities($task['date']) ?></td>
-                                                <td><a href="<?php echo base_url().'index.php/staffCtl/detailTugas?kode='.$task['kode'];?>"><button class="btn btn-primary">Detail</button></a></td>
+                                                <td><a href="<?php echo base_url().'index.php/staffCtl/detailTugas?kode='.$task['kode'];?>"><button class="btn" style="background:#D5EAF8;color:#0E3854">Detail</button></a></td>
                                             </tr>
 
                                         <?php } ?>
                                     </tbody>
-                                    <tfoot style="font-weight: 900;"> 
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Jobs</th>
-                                            <th>Attachment</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>  
                         </div>
