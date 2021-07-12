@@ -25,84 +25,62 @@
 
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800" style="font-weight:700">Dashboard</h1>
-                        <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-                    </div>
-                    <?php if($msg != ""){ ?>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success </strong><?php echo htmlentities($msg) ?>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    <?php } ?>
-                    <?php if($error != ""){ ?>
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>Sorry </strong><?php echo $error?>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    <?php } ?>
-                </div>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-6 col-md-6 mb-6">
-                            <div class="card shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Quote For Today!</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">You Will never really fail until you stop trying</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-6">
-                            <div class="card shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                3 hari lagi</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">Rapat Internal departemen IT pukul 19.00 WIB</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <h1 class="h3 mb-0 text-gray-800" style="font-weight:700">Tugas Saya</h1>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sticky-note"></i> Lapor Tugas</a>
                     </div>
                 </div>
                 <div class="container-fluid mb-3">
                     <div>
                         <br> 
-                        <div class="row card" style="color: #0E3854; font-weight: 700;background:white">
+                        <div class="row card" style="color: #0E3854; font-weight: 700; background:white !important">
                             <div class="table-responsive" style="padding: 20px 0">
-                                <table id="example" class="table bg-light" style="width:100%; color: #0E3854">
+                                <table id="example" class="table" style="width:100%; color: #0E3854;background:white">
                                     <thead style="background : rgba(255,165,2,0.5); font-weight: 900;">
                                         <tr>
                                             <th>Nama</th>
-                                            <th>Tugas</th>
+                                            <th>Subject</th>
                                             <th>Tanggal</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php 
-                                        $i=0;
-                                        foreach($alltask as $task){
-                                            $i++; ?>
-                                            <tr>
-                                                <td><?php echo htmlentities($task['nama_user']) ?></td>
-                                                <td><?php echo htmlentities($task['pekerjaan']) ?></td>
-                                                <td><?php echo htmlentities($task['date']) ?></td>
-                                                <td><a href="<?php echo base_url().'index.php/staffCtl/detailTugas?kode='.$task['kode'];?>"><button class="btn btn-primary">Detail</button></a></td>
-                                            </tr>
-
-                                        <?php } ?>
+                                    <!-- sementara data nya manual dulu nanti di ambil dari database -->
+                                        <tr>
+                                            <td>Rapat Mobile</td>
+                                            <td>Pembuatan halaman login pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rapat IT</td>
+                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rapat Website</td>
+                                            <td>backup regular website ruangHR</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rapat Mobile</td>
+                                            <td>Pembuatan halaman login pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rapat IT</td>
+                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rapat Website</td>
+                                            <td>backup regular website ruangHR</td>
+                                            <td>Jumat, 10 Oktober 2020</td>
+                                            <td><button class="btn btn-info">Detail</button></td>
+                                        </tr>
                                     </tbody>
                                     <tfoot style="font-weight: 900;"> 
                                         <tr>

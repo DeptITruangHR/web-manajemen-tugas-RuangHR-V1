@@ -26,8 +26,10 @@ class StaffCtl extends CI_Controller {
             redirect('welcome/redirecting');
         }
         $this->load->model('account');
+        $this->load->model('staff');
+        $detailTugas = $this->staff->getTaskDetail($session_data['id_grup']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
-        $this->load->view("staff/detailTugas", array('nama' => $session_data['nama_user']));
+        $this->load->view("staff/detailTugas", array('nama' => $session_data['nama_user'], 'detail' => $detailTugas));
     }
 
     public function tambahTugas(){
@@ -55,7 +57,7 @@ class StaffCtl extends CI_Controller {
         $this->load->model('staff');
         
         // $upload_data = $this->upload->data();
-        $config['upload_path'] = FCPATH."application/file";
+        $config['upload_path'] = FCPATH."/file";
         $config['file_name'] = $_FILES["lampiran"]['name'];
         $config['allowed_types'] = 'gif|jpg|png';
         $newname = $_FILES['lampiran']['name'];
@@ -72,6 +74,21 @@ class StaffCtl extends CI_Controller {
             // $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => 'Berhasil Ditambahkan', 'error'=> ''));
         }
     }
+
+    public function tugasSaya(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "3"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("staff/tugasSaya", array('nama' => $session_data['nama_user']));
+    }
+
+
 
     public function daftarNotulensi(){
         if(!$this->session->userdata('logged_in')){

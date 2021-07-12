@@ -31,7 +31,6 @@
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
                 </div>
-
                 <!-- detail tugas -->
                 <div class="container-fluid">
                     <div class="card shadow h-100 py-3 px-3 text-dark">
@@ -42,7 +41,7 @@
                                         <strong>Nama</strong>
                                     </div>
                                     <div class="col-md-12 ">
-                                        <div class="inputTugas py-3 px-2">Eka Diah Putri</div>
+                                        <div class="inputTugas py-3 px-2"><?php echo htmlentities($detail[0]['nama_user']) ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +51,7 @@
                                         <strong>Tanggal</strong>
                                     </div>
                                     <div class="col-md-12 ">
-                                        <div class="inputTugas py-3 px-2">Jumat, 10 Oktober 2021</div>
+                                        <div class="inputTugas py-3 px-2"><?php echo htmlentities($detail[0]['date']) ?></div>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +63,7 @@
                                         <strong>Tugas</strong>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="inputTugas py-3 px-2">Pembuatan halaman login pada aplikasi mobile</div>
+                                        <div class="inputTugas py-3 px-2"><?php echo htmlentities($detail[0]['pekerjaan']) ?></div>
                                         <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
                                     </div>
                                 </div>
@@ -73,7 +72,7 @@
                                         <strong>Link Pendukung</strong>
                                     </div>
                                     <div class="col-md-12 ">
-                                        <div class="inputTugas py-3 px-2">https://iniadalahsebuahlink/asdfasdf/asdfasdf</div>
+                                        <div class="inputTugas py-3 px-2"><?php echo htmlentities($detail[0]['link']) ?></div>
                                         <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
                                     </div>
                                 </div>
@@ -82,7 +81,15 @@
                                         <strong>Attachment</strong>
                                     </div>
                                     <div class="col-md-12 ">
-                                        <div class="inputTugas py-3 px-2">gambarScreenshootdariuser.jpg</div>
+                                        <div class="inputTugas py-3 px-2">
+                                            <?php 
+                                                if($detail[0]['file'] == ""){
+                                                    echo htmlentities("Tidak Ada Lampiran");
+                                                }else{ ?>
+                                                    <a href="<?php echo base_url('file/'.$detail[0]['file']) ?>" target="_blank"><?php echo htmlentities($detail[0]['file']) ?></a>
+                                                <?php }
+                                            ?>
+                                        </div>
                                         <!-- <input type="text" value="Pembuatan halaman login pada aplikasi mobile" disabled="disabled" class="inputTugas"> -->
                                     </div>
                                 </div>
@@ -93,7 +100,7 @@
                                         <strong>Deskripsi Tugas</strong>
                                     </div>
                                     <div class="col-md-12" >
-                                        <div class="inputTugas py-3 px-2">Update progress pembuatan halaman login pada aplikaksi mobile LokerBee, pembuatan proses login dan juga proses pendaftaran untuk user baru Update progress pembuatan halaman login pada aplikaksi mobile LokerBee, pembuatan proses login dan juga proses pendaftaran untuk user baru Update progress pembuatan halaman login pada aplikaksi mobile LokerBee, pembuatan proses login dan juga proses pendaftaran untuk user baru Update progress pembuatan halaman login pada aplikaksi mobile LokerBee, pembuatan proses login dan juga proses pendaftaran untuk user baru Update progress pembuatan halaman login pada aplikaksi mobile LokerBee, pembuatan proses login dan juga proses pendaftaran untuk user baru</div>
+                                        <div class="inputTugas py-3 px-2"><?php echo htmlentities($detail[0]['detail']) ?></div>
                                     </div>
                                 </div>
                             </div>
