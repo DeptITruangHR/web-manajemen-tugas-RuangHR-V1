@@ -12,6 +12,9 @@ class StaffCtl extends CI_Controller {
         }
         $this->load->model('account');
         $this->load->model('staff');
+        if($session_data['nama_user']==""){
+            redirect("staffctl/profile");
+        }
         $allTask = $this->staff->getAllTask($session_data['id_departemen']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
         $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => '', 'error'=>'', 'alltask' => $allTask));

@@ -18,12 +18,15 @@ class account extends CI_model {
         }else if($level == "3"){
             $q3 = "INSERT INTO member (id_grup, id_user, id_departemen) values ('$level', '$id_user', '$dept')";
             $this->db->query($q3);
+        }else if($level == "4"){
+            $q4 = "INSERT INTO member (id_grup, id_user, id_departemen) values ('$level', '$id_user', '$dept')";
+            $this->db->query($q4);
         }
     }
     function getIdUser(){
         $username = $this->input->post('username');
         $password = md5($this->input->post('password'));
-        $q = "SELECT * FROM user inner join member ON user.id_user=member.id_member where user.username='$username' AND user.password='$password'";
+        $q = "SELECT * FROM user inner join member ON user.id_user=member.id_user where user.username='$username' AND user.password='$password'";
         $res = $this->db->query($q);
         $users = $res->result_array();
         if(count($users)>0){

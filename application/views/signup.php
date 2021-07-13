@@ -52,6 +52,7 @@
                     <option value="1" selected="selected">Management</option>
                     <option value="2">HRD</option>
                     <option value="3">Staff</option>
+                    <option value="4">Leader</option>
                 </select>
                 <select name="dept" class="inputs hidden" id="dept" style="margin-bottom: 20px;">
                     <?php foreach($dept as $nama){ ?>

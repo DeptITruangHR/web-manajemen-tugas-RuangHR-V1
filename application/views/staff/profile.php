@@ -92,6 +92,9 @@
         <i class="fas fa-angle-up"></i>
     </a>
     <?php $this->load->view('staff/modal') ?>
+    <?php if($nama == ""){
+        echo '<script>alert("Silahkan Melengkapi Data diri terlebih dahulu")</script>';
+    } ?>
     <script src="<?php echo base_url(); ?>assets/bootstrap/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
