@@ -76,6 +76,13 @@ class staff extends CI_model {
         return $res->result_array();
     }
 
+    function getNotulensiDetail(){
+        $kode = $this->input->get('kode');
+        $query = "SELECT * from notulensi JOIN member on notulensi.id_member = member.id_member JOIN user on user.id_user=member.id_user WHERE notulensi.kode = '".$kode."'";
+        $res = $this->db->query($query);
+        return $res->result_array();
+    }
+
     // function getAllJob($id_member){
     //     $q = "SELECT * FROM tugas where id_member";
     // }

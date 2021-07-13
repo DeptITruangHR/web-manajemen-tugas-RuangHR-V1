@@ -183,6 +183,22 @@ class StaffCtl extends CI_Controller {
         // $tugas= $this->account->getAllJob($session_data['id_member']);
         $this->load->view("staff/tambahNotulensi", array('nama' => $session_data['nama_user']));
     }
+
+    public function detailNotulensi(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "3"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('staff');
+        $detailNotulensi = $this->staff->getNotulensiDetail();
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("staff/detailNotulensi", array('nama' => $session_data['nama_user'], 'detail' => $detailNotulensi));
+    }
+
     public function success(){
         if(!$this->session->userdata('logged_in')){
             redirect('welcome');
