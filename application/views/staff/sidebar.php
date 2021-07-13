@@ -25,7 +25,7 @@
             <span>Profile</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url().'index.php/staffctl/logout' ?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/accountctl/logout' ?>">
             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
             <span>LogOut</span></a>
     </li>
