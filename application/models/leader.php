@@ -48,6 +48,15 @@ class leader extends CI_model {
                 WHERE kode='".$kode."'";
         $res = $this->db->query($query);
     }
+
+    function getAllNotulensi($id_departemen=-1){
+        $query = "SELECT * FROM notulensi AS a
+                    JOIN MEMBER AS b ON a.id_member=b.id_member
+                    JOIN USER AS c ON c.id_user = b.id_user
+                    WHERE b.id_departemen='".$id_departemen."'";
+        $res = $this->db->query($query);
+        return $res->result_array();
+    }
 }
 
 ?>

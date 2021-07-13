@@ -134,6 +134,21 @@ class LeaderCtl extends CI_Controller {
         }
     }
 
+    public function daftarNotulensi(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('leader');
+        $notul = $this->leader->getAllNotulensi($session_data['id_departemen']);
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("leader/daftarNotulensi", array('nama' => $session_data['nama_user'], 'notul' => $notul));
+    }
+
     public function success(){
         if(!$this->session->userdata('logged_in')){
             redirect('welcome');
