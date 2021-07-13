@@ -57,6 +57,20 @@ class leader extends CI_model {
         $res = $this->db->query($query);
         return $res->result_array();
     }
+
+    function insertNewNotulensi($id_member=-1){
+        $this->db->set("id_member", $id_member);
+        $this->db->set("subject", $this->input->post("subjects"));
+        $this->db->set("detail", $this->input->post("deskripsi"));
+        $date1 = strtotime($this->input->post("dates"));
+        $date1 = date('Y-m-d', $date1);
+        $this->db->set("tanggal", $date1);
+        $kode = $id_member.'.'.time();
+        $this->db->set("kode", md5($kode));
+        // $this->db->set("date", time());
+        $this->db->insert('notulensi');
+        return $this->db->insert_id();
+    }
 }
 
 ?>

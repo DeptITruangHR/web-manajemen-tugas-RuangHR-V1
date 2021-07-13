@@ -149,6 +149,37 @@ class LeaderCtl extends CI_Controller {
         $this->load->view("leader/daftarNotulensi", array('nama' => $session_data['nama_user'], 'notul' => $notul));
     }
 
+    public function tambahNotulensi(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("leader/tambahNotulensi", array('nama' => $session_data['nama_user']));
+    }
+
+    public function masukkanNotulensi(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->helper(array('url','security','form'));
+        $this->load->model('leader');
+        $id_notulensi = $this->leader->insertNewNotulensi($session_data['id_member']);
+        if($id_notulensi > 0){
+            redirect('leaderctl/success');
+        }else{
+            redirect('leaderctl/error');
+        }
+    }
+
     public function success(){
         if(!$this->session->userdata('logged_in')){
             redirect('welcome');
