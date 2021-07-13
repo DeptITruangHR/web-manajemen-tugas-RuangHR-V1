@@ -226,7 +226,11 @@ class StaffCtl extends CI_Controller {
         $this->load->model('staff');
         $profile = $this->staff->updateProfileDetail($session_data['id_user']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
-        redirect('staffctl/profile');
+        if($session_data['nama_user']==""){
+            redirect('accountctl/logout');
+        }else{
+            redirect('staffctl/profile');
+        }
         // $this->load->view("staff/profile", array('nama' => $session_data['nama_user'], "detail"=>$detailProfile));
     }
 

@@ -49,6 +49,8 @@ class AccountCtl extends CI_Controller {
 				redirect('staffctl');
 			}else if($users[0]['id_grup'] == 2){
 				redirect('hrdctl');
+			}else if($users[0]['id_grup'] == 4){
+				redirect('leaderctl');
 			}else{
 				redirect('managementctl');
 			}
