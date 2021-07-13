@@ -18,10 +18,10 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <?php $this->load->view('staff/sidebar') ?>
+        <?php $this->load->view('leader/sidebar') ?>
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
-                <?php $this->load->view('staff/header', array('nama' => $nama)) ?>
+                <?php $this->load->view('leader/header', array('nama' => $nama)) ?>
 
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center mb-4">
@@ -56,7 +56,7 @@
                                                 <td><?php echo htmlentities($task['nama_user']) ?></td>
                                                 <td><?php echo htmlentities($task['pekerjaan']) ?></td>
                                                 <td><?php echo htmlentities($task['date']) ?></td>
-                                                <td><a href="<?php echo base_url().'index.php/staffCtl/detailTugas?kode='.$task['kode'];?>"><button class="btn" style="background:#D5EAF8;color:#0E3854">Detail</button></a></td>
+                                                <td><a href="<?php echo base_url().'index.php/leaderCtl/detailTugas?kode='.$task['kode'];?>"><button class="btn" style="background:#D5EAF8;color:#0E3854">Detail</button></a></td>
                                                 <?php if($task['status']==0){ ?>
                                                     <td class="text-success text-center">Selesai</td>
                                                 <?php }else if($task['status'] == 1){ ?>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <?php $this->load->view('staff/footer') ?>
+            <?php $this->load->view('leader/footer') ?>
 
         </div>
 
@@ -110,7 +110,7 @@
                                 <tr>
                                     <td><?php echo htmlentities($task['pekerjaan']) ?></td>
                                     <td><?php echo htmlentities($task['date']) ?></td>
-                                    <td><a href="<?php echo base_url().'index.php/staffCtl/updateTugas?kode='.$task['kode'];?>"><button class="btn" style="background:#D5EAF8;color:#0E3854">Update</button></a></td>
+                                    <td><a href="<?php echo base_url().'index.php/leaderCtl/updateTugas?kode='.$task['kode'];?>"><button class="btn" style="background:#D5EAF8;color:#0E3854">Update</button></a></td>
                                 </tr>
 
                         <?php } ?>
@@ -124,7 +124,7 @@
             </div>
         </div>
     </div>
-    <?php $this->load->view('staff/modal') ?>
+    <?php $this->load->view('leader/modal') ?>
     <script src="<?php echo base_url(); ?>assets/bootstrap/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>

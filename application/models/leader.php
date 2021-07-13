@@ -37,6 +37,17 @@ class leader extends CI_model {
         $this->db->insert('tugas');
         return $this->db->insert_id();
     }
+
+    function insertUpdateTask($id_member=-1, $filename=""){
+        $kode = $this->input->get('kode');
+        $query = "UPDATE tugas SET pekerjaan ='".$this->input->post('tugas')."',
+                        detail = '".$this->input->post("deskripsi")."',
+                        file='".$filename."',
+                        link='".$this->input->post("link")."',
+                        status='2' 
+                WHERE kode='".$kode."'";
+        $res = $this->db->query($query);
+    }
 }
 
 ?>
