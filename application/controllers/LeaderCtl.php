@@ -134,6 +134,37 @@ class LeaderCtl extends CI_Controller {
         }
     }
 
+    public function berikanTugas(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('leader');
+        $daftarAnggota = $this->leader->getAllAnggota($session_data['id_departemen']);
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        redirect('staffctl/success');
+        // $this->load->view("leader/berikanTugas", array('nama' => $session_data['nama_user'], 'daftarAnggota'=> $daftarAnggota));
+    }
+
+    public function delegasikanTugas(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('leader');
+        $detailTugas = $this->leader->insertTaskForStaf($session_data['id_member']);
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("leader/updateTugas", array('nama' => $session_data['nama_user'], 'detail' => $detailTugas));
+    }
+
     public function daftarNotulensi(){
         if(!$this->session->userdata('logged_in')){
             redirect('welcome');

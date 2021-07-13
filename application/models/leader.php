@@ -94,6 +94,28 @@ class leader extends CI_model {
         $this->db->update('user');
         return $this->db->insert_id();
     }
+
+    function getAllAnggota($id_departemen=-1){
+        $query = "SELECT * FROM user AS a INNER JOIN 
+                    member AS b ON a.id_user=b.id_user WHERE b.id_grup='3' AND b.id_departemen='".$id_departemen."'";
+        $res = $this->db->query($query);
+        return $res->result_array();        
+    }
+
+    function insertTaskForStaf($id_member=-1){
+        $this->db->set("id_member", $this->input->post("user"));
+        $this->db->set("pekerjaan", $this->input->post("tugas"));
+        $this->db->set("detail", $this->input->post("deskripsi"));
+        $date1 = strtotime($this->input->post("tanggal"));
+        $date1 = date('Y-m-d', $date1);
+        $this->db->set("deadline", $date1);
+        $kode = $id_member.'.'.time();
+        $this->db->set("kode", md5($kode));
+        $this->db->set("status", '1');
+        // $this->db->set("date", time());
+        $this->db->insert('tugas');
+        return $this->db->insert_id();
+    }
 }
 
 ?>
