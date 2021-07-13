@@ -71,6 +71,13 @@ class leader extends CI_model {
         $this->db->insert('notulensi');
         return $this->db->insert_id();
     }
+
+    function getNotulensiDetail(){
+        $kode = $this->input->get('kode');
+        $query = "SELECT * from notulensi JOIN member on notulensi.id_member = member.id_member JOIN user on user.id_user=member.id_user WHERE notulensi.kode = '".$kode."'";
+        $res = $this->db->query($query);
+        return $res->result_array();
+    }
 }
 
 ?>
