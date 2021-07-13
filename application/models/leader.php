@@ -24,6 +24,19 @@ class leader extends CI_model {
         $res = $this->db->query($query);
         return $res->result_array();
     }
+
+    function insertNewTask($id_member=-1, $filename=""){
+        $this->db->set("pekerjaan", $this->input->post('tugas'));
+        $this->db->set("id_member", $id_member);
+        $this->db->set("detail", $this->input->post("deskripsi"));
+        $this->db->set("file", $filename);
+        $this->db->set("link", $this->input->post("link"));
+        $kode = $id_member.'.'.time();
+        $this->db->set("kode", md5($kode));
+        // $this->db->set("date", time());
+        $this->db->insert('tugas');
+        return $this->db->insert_id();
+    }
 }
 
 ?>

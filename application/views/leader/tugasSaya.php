@@ -26,9 +26,9 @@
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center mb-4">
                         <h1 class="h3 mb-0 text-gray-800" style="font-weight:700">Tugas Saya</h1>
-                        <a href="<?php echo base_url().'index.php/staffCtl/tambahTugas'?>" class="d-none ml-auto d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus-square"></i> Lapor Tugas</a>
+                        <a href="<?php echo base_url().'index.php/leaderCtl/tambahTugas'?>" class="d-none ml-auto d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus-square"></i> Lapor Tugas</a>
                         <button type="button" class="d-none ml-3  d-sm-inline-block btn btn-sm btn-info shadow-sm" data-toggle="modal" data-target="#staticBackdrop"><i class="fas fa-sticky-note"></i> Update Tugas</button>
-                        <a href="<?php echo base_url().'index.php/staffCtl/tambahTugas'?>" class="d-none ml-3 d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i class="fas fa-plus-square"></i> Berikan Tugas</a>
+                        <a href="<?php echo base_url().'index.php/leaderCtl/berikanTugas'?>" class="d-none ml-3 d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i class="fas fa-plus-square"></i> Berikan Tugas</a>
                     </div>
                 </div>
                 <div class="container-fluid mb-3">
