@@ -45,51 +45,19 @@
                                     </thead>
                                     <tbody>
                                     <!-- sementara data nya manual dulu nanti di ambil dari database -->
-                                        <tr>
-                                            <td>Rapat Mobile</td>
-                                            <td>Pembuatan halaman login pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat IT</td>
-                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat Website</td>
-                                            <td>backup regular website ruangHR</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat Mobile</td>
-                                            <td>Pembuatan halaman login pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat IT</td>
-                                            <td>Pembuatan halaman dashboard pada aplikasi android</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rapat Website</td>
-                                            <td>backup regular website ruangHR</td>
-                                            <td>Jumat, 10 Oktober 2020</td>
-                                            <td><button class="btn btn-info">Detail</button></td>
-                                        </tr>
+                                    <?php 
+                                        $i=0;
+                                        foreach($allstaff as $task){
+                                            $i++; ?>
+                                            <tr>
+                                                <td><?php echo htmlentities($task['nama_user']) ?></td>
+                                                <td><?php echo htmlentities($task['subject']) ?></td>
+                                                <td><?php echo htmlentities($task['tanggal']) ?></td>
+                                                <td><a href="<?php echo base_url().'index.php/staffCtl/detailNotulensi?kode='.$task['kode'];?>"><button class="btn" style="background:#D5EAF8;color:#0E3854">Detail</button></a></td>
+                                            </tr>
+
+                                    <?php } ?>
                                     </tbody>
-                                    <tfoot style="font-weight: 900;"> 
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Jobs</th>
-                                            <th>Attachment</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </tfoot>
                                 </table>
                             </div>  
                         </div>

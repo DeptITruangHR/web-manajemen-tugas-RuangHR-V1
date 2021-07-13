@@ -67,11 +67,11 @@ class staff extends CI_model {
         return $this->db->insert_id();
     }
 
-    function getAllNotulensi($id_grup=-1){
+    function getAllNotulensi($id_departemen=-1){
         $query = "SELECT * FROM notulensi AS a
                     JOIN MEMBER AS b ON a.id_member=b.id_member
                     JOIN USER AS c ON c.id_user = b.id_user
-                    WHERE b.id_grup='".$id_grup."'";
+                    WHERE b.id_departemen='".$id_departemen."'";
         $res = $this->db->query($query);
         return $res->result_array();
     }

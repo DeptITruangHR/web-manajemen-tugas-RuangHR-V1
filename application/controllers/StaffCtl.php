@@ -166,9 +166,9 @@ class StaffCtl extends CI_Controller {
         }
         $this->load->model('account');
         $this->load->model('staff');
-        $this->staff->getAllNotulensi($session_data['id_grup']);
+        $staff = $this->staff->getAllNotulensi($session_data['id_departemen']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
-        $this->load->view("staff/daftarNotulensi", array('nama' => $session_data['nama_user']));
+        $this->load->view("staff/daftarNotulensi", array('nama' => $session_data['nama_user'], 'allstaff' => $staff));
     }
 
     public function tambahNotulensi(){
