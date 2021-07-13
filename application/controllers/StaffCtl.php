@@ -12,7 +12,7 @@ class StaffCtl extends CI_Controller {
         }
         $this->load->model('account');
         $this->load->model('staff');
-        $allTask = $this->staff->getAllTask();
+        $allTask = $this->staff->getAllTask($session_data['id_departemen']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
         $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => '', 'error'=>'', 'alltask' => $allTask));
     }
@@ -72,6 +72,24 @@ class StaffCtl extends CI_Controller {
             $data = array('upload_data' => $this->upload->data());
             redirect('staffctl/success');
             // $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => 'Berhasil Ditambahkan', 'error'=> ''));
+        }
+    }
+
+    public function masukkanNotulensi(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "3"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->helper(array('url','security','form'));
+        $this->load->model('staff');
+        $id_notulensi = $this->staff->insertNewNotulensi($session_data['id_member']);
+        if($id_notulensi > 0){
+            redirect('staffctl/success');
+        }else{
+            redirect('staffctl/error');
         }
     }
 
@@ -147,6 +165,8 @@ class StaffCtl extends CI_Controller {
             redirect('welcome/redirecting');
         }
         $this->load->model('account');
+        $this->load->model('staff');
+        $this->staff->getAllNotulensi($session_data['id_grup']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
         $this->load->view("staff/daftarNotulensi", array('nama' => $session_data['nama_user']));
     }

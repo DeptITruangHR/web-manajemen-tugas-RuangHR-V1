@@ -35,13 +35,13 @@
                 <!-- detail tugas -->
                 <div class="container-fluid">
                     <div class="card shadow h-100 py-3 px-3 text-dark">
-                        <form action="">
+                        <form method="post" action="<?php echo base_url().'index.php/staffCtl/masukkanNotulensi';?>">
                             <div class="row">
                                 <div class="col-md-3 inputTitle py-2">
                                     <strong>Nama</strong>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" placeholder="Masukkan Nama" class="inputTugas py-3 px-2">
+                                    <input type="text" disabled="disabled" value="<?php echo htmlentities($nama) ?>" class="inputTugas py-3 px-2">
                                 </div>
                             </div>
                             <div class="row py-2">
@@ -49,7 +49,7 @@
                                     <strong>Subject</strong>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="text" placeholder="Masukkan Subject" class="inputTugas py-3 px-2">
+                                    <input type="text" name="subjects" placeholder="Masukkan Subject" class="inputTugas py-3 px-2">
                                 </div>
                             </div>
                             <div class="row py-2">
@@ -57,7 +57,7 @@
                                     <strong>Tanggal</strong>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="date" placeholder="Masukkan Tanggal" class="inputTugas py-3 px-2">
+                                    <input type="date" name="dates" placeholder="Masukkan Tanggal" class="inputTugas py-3 px-2">
                                 </div>
                             </div>
                             <div class="row py-2">
@@ -65,7 +65,7 @@
                                     <strong>Detail</strong>
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea name="" id="" cols="30" rows="10" class="inputTugas py-3 px-2"></textarea>
+                                    <textarea name="deskripsi" id="" cols="30" rows="10" class="inputTugas py-3 px-2"></textarea>
                                     <!-- <input type="date" placeholder="Masukkan Tanggal" class="inputTugas py-3 px-2"> -->
                                 </div>
                             </div>
