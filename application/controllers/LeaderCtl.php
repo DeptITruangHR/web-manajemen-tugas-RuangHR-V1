@@ -31,4 +31,20 @@ class LeaderCtl extends CI_Controller {
         // $tugas= $this->account->getAllJob($session_data['id_member']);
         $this->load->view("leader/detailTugas", array('nama' => $session_data['nama_user'], 'detail' => $detailTugas));
     }
+
+    public function tugasSaya(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('leader');
+        $myTask = $this->leader->getMyTask($session_data['id_member']);
+        $myUndoneTask = $this->leader->getMyUndoneTask($session_data['id_member']);
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("leader/tugasSaya", array('nama' => $session_data['nama_user'], 'mytask' => $myTask, 'myUndoneTask' => $myUndoneTask));
+    }
 }
