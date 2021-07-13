@@ -110,7 +110,7 @@ class StaffCtl extends CI_Controller {
         $config['allowed_types'] = 'gif|jpg|png';
         $newname = $_FILES['lampiran']['name'];
         
-        
+
         $this->load->library('upload', $config); 
         if( ! $this->upload->do_upload('lampiran')){ 
             $error = array('error' => $this->upload->display_errors());
@@ -199,6 +199,37 @@ class StaffCtl extends CI_Controller {
         $this->load->view("staff/detailNotulensi", array('nama' => $session_data['nama_user'], 'detail' => $detailNotulensi));
     }
 
+    public function profile(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "3"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('staff');
+        $detailProfile = $this->staff->getProfileDetail($session_data['id_user']);
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("staff/profile", array('nama' => $session_data['nama_user'], "detail"=>$detailProfile));
+    }
+
+    public function updateProfile(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "3"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('staff');
+        $profile = $this->staff->updateProfileDetail($session_data['id_user']);
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        redirect('staffctl/profile');
+        // $this->load->view("staff/profile", array('nama' => $session_data['nama_user'], "detail"=>$detailProfile));
+    }
+
     public function success(){
         if(!$this->session->userdata('logged_in')){
             redirect('welcome');
@@ -209,7 +240,7 @@ class StaffCtl extends CI_Controller {
         }
         $this->load->model('account');
         $this->load->model('staff');
-        $allTask = $this->staff->getAllTask();
+        $allTask = $this->staff->getAllTask($session_data['id_departemen']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
         // $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => '', 'error'=>''));
         $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => 'Berhasil Ditambahkan', 'error'=> '', 'alltask' => $allTask));
@@ -225,7 +256,7 @@ class StaffCtl extends CI_Controller {
         }
         $this->load->model('account');
         $this->load->model('staff');
-        $allTask = $this->staff->getAllTask();
+        $allTask = $this->staff->getAllTask($session_data['id_departemen']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
         // $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => '', 'error'=>''));
         $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => '', 'error'=> $error['error'], 'alltask' => $allTask));

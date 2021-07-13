@@ -40,17 +40,23 @@ class staff extends CI_model {
 
     function insertUpdateTask($id_member=-1, $filename=""){
         $kode = $this->input->get('kode');
-        $this->db->set("pekerjaan", $this->input->post('tugas'));
-        $this->db->set("id_member", $id_member);
-        $this->db->set("detail", $this->input->post("deskripsi"));
-        $this->db->set("file", $filename);
-        $this->db->set("link", $this->input->post("link"));
-        $this->db->set("status", '2');
-        // $kode = $id_member.'.'.time();
-        // $this->db->set("date", time());
-        $this->db->update('tugas');
-        $this->db->where("kode", $kode);
-        return $this->db->insert_id();
+        $query = "UPDATE tugas SET pekerjaan ='".$this->input->post('tugas')."',
+                        detail = '".$this->input->post("deskripsi")."',
+                        file='".$filename."',
+                        link='".$this->input->post("link")."',
+                        status='2' 
+                WHERE kode='".$kode."'";
+        $res = $this->db->query($query);
+        // $this->db->set("pekerjaan", $this->input->post('tugas'));
+        // $this->db->set("detail", $this->input->post("deskripsi"));
+        // $this->db->set("file", $filename);
+        // $this->db->set("link", $this->input->post("link"));
+        // $this->db->set("status", '2');
+        // // $kode = $id_member.'.'.time();
+        // // $this->db->set("date", time());
+        // $this->db->where("kode", $kode);
+        // $this->db->update('tugas');
+        // return $this->db->insert_id();
     }
 
     function insertNewNotulensi($id_member=-1){
@@ -81,6 +87,22 @@ class staff extends CI_model {
         $query = "SELECT * from notulensi JOIN member on notulensi.id_member = member.id_member JOIN user on user.id_user=member.id_user WHERE notulensi.kode = '".$kode."'";
         $res = $this->db->query($query);
         return $res->result_array();
+    }
+
+    function getProfileDetail($id_user=-1){
+        $query= "SELECT * FROM user WHERE id_user='".$id_user."'";
+        $res = $this->db->query($query);
+        return $res->result_array();
+    }
+
+    function updateProfileDetail($id_user=-1){
+        $this->db->set("username", $this->input->post('username'));
+        $this->db->set("nama_user", $this->input->post("nama"));
+        $this->db->set("alamat", $this->input->post("alamat"));
+        $this->db->set("nomor_telepon", $this->input->post("nomor"));
+        $this->db->where("id_user", $id_user);
+        $this->db->update('user');
+        return $this->db->insert_id();
     }
 
     // function getAllJob($id_member){

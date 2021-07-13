@@ -35,7 +35,7 @@
                 <!-- detail tugas -->
                 <div class="container-fluid">
                     <div class="card shadow h-100 py-3 px-3 text-dark">
-                        <form method="post" enctype="multipart/form-data" action="<?php echo base_url().'index.php/staffCtl/masukkanUpdateTugas';?>">
+                        <form method="post" enctype="multipart/form-data" action="<?php echo base_url().'index.php/staffCtl/masukkanUpdateTugas?kode='.$detail[0]['kode'];?>">
                             <div class="row py-1">
                                 <div class="col-md-6">
                                     <div class="row">

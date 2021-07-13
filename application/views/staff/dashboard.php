@@ -90,7 +90,7 @@
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style="background: white">
                                     <?php 
                                         $i=0;
                                         foreach($alltask as $task){
