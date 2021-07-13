@@ -195,6 +195,39 @@ class LeaderCtl extends CI_Controller {
         $this->load->view("leader/detailNotulensi", array('nama' => $session_data['nama_user'], 'detail' => $detailNotulensi));
     }
 
+    public function profile(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('leader');
+        $detailProfile = $this->leader->getProfileDetail($session_data['id_user']);
+        $this->load->view("leader/profile", array('nama' => $session_data['nama_user'], "detail"=>$detailProfile));
+    }
+
+    public function updateProfile(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('leader');
+        $profile = $this->leader->updateProfileDetail($session_data['id_user']);
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        if($session_data['nama_user']==""){
+            redirect('accountctl/logout');
+        }else{
+            redirect('leaderctl/profile');
+        }
+    }
+
     public function success(){
         if(!$this->session->userdata('logged_in')){
             redirect('welcome');
