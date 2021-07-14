@@ -12,6 +12,13 @@ class hrd extends CI_model {
         $res = $this->db->query($query);
         return $res->result_array();
     }
+
+    function getAllAnggota($id_departemen=-1){
+        $query = "SELECT * FROM user AS a INNER JOIN 
+                    member AS b ON a.id_user=b.id_user WHERE (b.id_grup='3' OR b.id_grup='4') AND b.id_departemen='".$id_departemen."'";
+        $res = $this->db->query($query);
+        return $res->result_array();        
+    }
 }
 
 ?>

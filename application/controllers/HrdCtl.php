@@ -35,6 +35,22 @@ class HrdCtl extends CI_Controller {
         $this->load->view("hrd/detailTugas", array('nama' => $session_data['nama_user'], 'detail' => $detailTugas));
     }
 
+    public function berikanTugas(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "2"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('hrd');
+        $daftarAnggota = $this->hrd->getAllAnggota($session_data['id_departemen']);
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        // redirect('staffctl/success');
+        $this->load->view("hrd/berikanTugas", array('nama' => $session_data['nama_user'], 'daftarAnggota'=> $daftarAnggota));
+    }
+
     // public function tugasSaya(){
     //     if(!$this->session->userdata('logged_in')){
     //         redirect('welcome');
