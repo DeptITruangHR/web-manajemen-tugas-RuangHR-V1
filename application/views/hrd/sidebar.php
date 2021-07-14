@@ -9,11 +9,11 @@
             <span>Dashboard</span></a>
     </li>
     <hr class="sidebar-divider">
-    <li class="nav-item active">
+    <!-- <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url().'index.php/hrdctl/tugasSaya' ?>">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Daftar Tugas</span></a>
-    </li>
+    </li> -->
     <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url().'index.php/hrdctl/daftarNotulensi' ?>">
             <i class="fas fa-sticky-note"></i>

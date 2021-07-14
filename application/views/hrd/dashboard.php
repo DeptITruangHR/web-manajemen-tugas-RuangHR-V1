@@ -26,6 +26,7 @@
                 <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800" style="font-weight:700">Dashboard</h1>
+                        <a href="<?php echo base_url().'index.php/hrdCtl/berikanTugas'?>" class="d-none ml-auto d-sm-inline-block btn btn-sm btn-warning shadow-sm"><i class="fas fa-plus-square"></i> Berikan Tugas</a>
                         <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
                     </div>
@@ -79,19 +80,22 @@
                 <div class="container-fluid mb-3">
                     <div>
                         <br> 
-                        <div class="row card" style="color: #0E3854; font-weight: 700;background:white">
+                        <div class="row card" style="color: #0E3854; font-weight: 700; background:white !important">
                             <div class="table-responsive" style="padding: 20px 0">
-                                <table id="example" class="table bg-light text-center" style="width:100%; color: #0E3854">
+                                <table id="example" class="table" style="width:100%; color: #0E3854;background:white">
                                     <thead style="background : rgba(255,165,2,0.5); font-weight: 900;">
-                                        <tr>
+                                        <tr class="text-center">
                                             <th>Nama</th>
-                                            <th>Tugas</th>
+                                            <th>Subject</th>
                                             <th>Tanggal</th>
+                                            <th>Detail</th>
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tbody style="background: white">
-                                    <?php 
+                                    <tbody class="text-center">
+                                    <!-- sementara data nya manual dulu nanti di ambil dari database -->
+                                        <?php 
                                         $i=0;
                                         foreach($alltask as $task){
                                             $i++; ?>
@@ -99,7 +103,21 @@
                                                 <td><?php echo htmlentities($task['nama_user']) ?></td>
                                                 <td><?php echo htmlentities($task['pekerjaan']) ?></td>
                                                 <td><?php echo htmlentities($task['date']) ?></td>
-                                                <td><a href="<?php echo base_url().'index.php/hrdCtl/detailTugas?kode='.$task['kode'];?>"><button class="btn" style="background:#D5EAF8;color:#0E3854">Detail</button></a></td>
+                                                <td><a href="<?php echo base_url().'index.php/hrdCtl/detailTugas?kode='.$task['kode'];?>"><button class="btn" style="color:#0E3854">Detail</button></a></td>
+                                                <?php if($task['status']==0){ ?>
+                                                    <td class="text-success text-center">Selesai</td>
+                                                <?php }else if($task['status'] == 1){ ?>
+                                                    <td class="text-warning text-center">Belum selesai</td>
+                                                <?php }else if($task['status'] == 2) { ?>
+                                                    <td class="text-info text-center">Menunggu</td>
+                                                <?php } ?>
+                                                <?php if($task['status']==0){ ?>
+                                                    <td class="text-success text-center">-</td>
+                                                <?php }else if($task['status'] == 1){ ?>
+                                                    <td class="text-warning text-center">-</td>
+                                                <?php }else if($task['status'] == 2) { ?>
+                                                    <td><button class="btn btn-info">Setujui</button></td>
+                                                <?php } ?>
                                             </tr>
 
                                         <?php } ?>
