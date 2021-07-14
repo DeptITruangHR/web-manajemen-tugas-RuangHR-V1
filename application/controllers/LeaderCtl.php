@@ -12,6 +12,9 @@ class LeaderCtl extends CI_Controller {
         }
         $this->load->model('account');
         $this->load->model('leader');
+        if($session_data['nama_user']==""){
+            redirect("leaderctl/profile");
+        }
         $allTask = $this->leader->getAllTask($session_data['id_departemen']);
         // $tugas= $this->account->getAllJob($session_data['id_member']);
         $this->load->view("leader/dashboard", array('nama' => $session_data['nama_user'], 'msg' => '', 'error'=>'', 'alltask' => $allTask));
