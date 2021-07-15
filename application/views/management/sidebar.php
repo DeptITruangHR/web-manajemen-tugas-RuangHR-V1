@@ -10,6 +10,11 @@
     </li>
     <hr class="sidebar-divider">
     <li class="nav-item active">
+        <a class="nav-link" href="<?php echo base_url().'index.php/managementctl/daftarAnggota' ?>">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Daftar Anggota</span></a>
+    </li>
+    <li class="nav-item active">
         <a class="nav-link" href="<?php echo base_url().'index.php/managementctl/tugasSaya' ?>">
             <i class="fas fa-fw fa-wrench"></i>
             <span>Daftar Tugas</span></a>
