@@ -37,8 +37,8 @@
                                 <table id="example" class="table" style="width:100%; color: #0E3854;background:white">
                                     <thead style="background : rgba(255,165,2,0.5); font-weight: 900;">
                                         <tr>
-                                            <th>Nama</th>
-                                            <th>Subject</th>
+                                            <th>Departement</th>
+                                            <th>Judul</th>
                                             <th>Tanggal</th>
                                             <th>Aksi</th>
                                         </tr>

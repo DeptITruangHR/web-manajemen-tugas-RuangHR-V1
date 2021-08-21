@@ -264,7 +264,10 @@ class StaffCtl extends CI_Controller {
         $this->load->model('account');
         $this->load->model('staff');
         $allTask = $this->staff->getAllTask($session_data['id_departemen']);
-        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $error = [
+            'error' => 'Data tidak Berhasil Masuk'
+        ];
+        // $tugas = $this->account->getAllJob($session_data['id_member']);
         // $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => '', 'error'=>''));
         $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => '', 'error'=> $error['error'], 'alltask' => $allTask));
         // $this->load->view("staff/dashboard", array('nama' => $session_data['nama_user'], 'msg' => 'Berhasil Ditambahkan', 'error'=> '', 'alltask' => $allTask));
