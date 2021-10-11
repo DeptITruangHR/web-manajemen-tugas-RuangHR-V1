@@ -106,6 +106,9 @@ class HrdCtl extends CI_Controller {
         $this->load->model('account');
         $this->load->model('hrd');
         $allTask = $this->hrd->getAllTask($session_data['id_departemen']);
+        $error = [
+            'error' => "data tidak masuk"
+        ];
         $this->load->view("hrd/dashboard", array('nama' => $session_data['nama_user'], 'msg' => '', 'error'=> $error['error'], 'alltask' => $allTask));
     }
 
@@ -142,6 +145,68 @@ class HrdCtl extends CI_Controller {
             redirect('hrdctl/profile');
         }
     }
+
+    public function daftarNotulensi(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "2"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('leader');
+        $notul = $this->leader->getAllNotulensi($session_data['id_departemen']);
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("hrd/daftarNotulensi", array('nama' => $session_data['nama_user'], 'notul' => $notul));
+    }
+
+    public function tambahNotulensi(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("hrd/tambahNotulensi", array('nama' => $session_data['nama_user']));
+    }
+
+    public function masukkanNotulensi(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->helper(array('url','security','form'));
+        $this->load->model('hrd');
+        $id_notulensi = $this->hrd->insertNewNotulensi($session_data['id_member']);
+        if($id_notulensi > 0){
+            redirect('leaderctl/success');
+        }else{
+            redirect('leaderctl/error');
+        }
+    }
+
+    public function detailNotulensi(){
+        if(!$this->session->userdata('logged_in')){
+            redirect('welcome');
+        }
+        $session_data = $this->session->userdata('logged_in');
+        if($session_data['id_grup'] != "4"){
+            redirect('welcome/redirecting');
+        }
+        $this->load->model('account');
+        $this->load->model('hrd');
+        $detailNotulensi = $this->hrd->getNotulensiDetail();
+        // $tugas= $this->account->getAllJob($session_data['id_member']);
+        $this->load->view("hrd/detailNotulensi", array('nama' => $session_data['nama_user'], 'detail' => $detailNotulensi));
+    }
+
 
     // public function tugasSaya(){
     //     if(!$this->session->userdata('logged_in')){

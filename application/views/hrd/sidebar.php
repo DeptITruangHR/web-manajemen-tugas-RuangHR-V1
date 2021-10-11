@@ -4,28 +4,23 @@
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/hrdctl' ?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/HrdCtl' ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
     <hr class="sidebar-divider">
-    <!-- <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/hrdctl/tugasSaya' ?>">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Daftar Tugas</span></a>
-    </li> -->
     <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/hrdctl/daftarNotulensi' ?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/HrdCtl/daftarNotulensi' ?>">
             <i class="fas fa-sticky-note"></i>
             <span>Daftar Notulensi</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="<?php echo base_url().'index.php/hrdctl/profile' ?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/HrdCtl/profile' ?>">
             <i class="fas fa-fw fa-cog"></i>
             <span>Profile</span></a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url().'index.php/accountctl/logout' ?>">
+        <a class="nav-link" href="<?php echo base_url().'index.php/HrdCtl/logout' ?>">
             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
             <span>LogOut</span></a>
     </li>

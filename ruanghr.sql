@@ -103,7 +103,7 @@ INSERT INTO `member` (`id_member`, `id_grup`, `id_user`, `id_departemen`) VALUES
 CREATE TABLE `notulensi` (
   `id_notulensi` int(11) NOT NULL,
   `id_member` int(11) NOT NULL,
-  `tanggal` date NOT NULL DEFAULT current_timestamp(),
+  `tanggal` date NOT NULL DEFAULT CURRENT_TIMESTAMP(),
   `subject` text NOT NULL,
   `detail` text NOT NULL,
   `kode` text NOT NULL

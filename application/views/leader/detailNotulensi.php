@@ -38,35 +38,11 @@
                         <form>
                             <div class="row">
                                 <div class="col-md-3 inputTitle py-2">
-                                    <strong>Nama</strong>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="inputTugas py-3 px-2"><?php echo htmlentities($nama) ?></div>
-                                    <!-- <input type="text" disabled="disabled" value="<?php echo htmlentities($nama) ?>" class="inputTugas py-3 px-2"> -->
+                                    <h2><?php echo htmlentities($detail[0]['subject']) ?></h2>
+                                    <p><?php echo htmlentities($detail[0]['tanggal']) ?></p>
                                 </div>
                             </div>
                             <div class="row py-2">
-                                <div class="col-md-3 inputTitle py-2">
-                                    <strong>Subject</strong>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="inputTugas py-3 px-2"><?php echo htmlentities($detail[0]['subject']) ?></div>
-                                    <!-- <input type="text" name="subjects" placeholder="Masukkan Subject" class="inputTugas py-3 px-2"> -->
-                                </div>
-                            </div>
-                            <div class="row py-2">
-                                <div class="col-md-3 inputTitle py-2">
-                                    <strong>Tanggal</strong>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="inputTugas py-3 px-2"><?php echo htmlentities($detail[0]['tanggal']) ?></div>
-                                    <!-- <input type="date" name="dates" placeholder="Masukkan Tanggal" class="inputTugas py-3 px-2"> -->
-                                </div>
-                            </div>
-                            <div class="row py-2">
-                                <div class="col-md-12 inputTitle py-2">
-                                    <strong>Detail</strong>
-                                </div>
                                 <div class="col-md-12">
                                     <textarea disabled name="deskripsi" id="" cols="30" rows="10" class="inputTugas py-3 px-2"><?php echo htmlentities($detail[0]['detail']) ?></textarea>
                                     <!-- <input type="date" placeholder="Masukkan Tanggal" class="inputTugas py-3 px-2"> -->
